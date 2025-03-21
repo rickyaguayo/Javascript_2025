@@ -139,7 +139,6 @@ console.log("24" / 2);
 let n = "1" + 1;
 n = n - 1;
 console.log(n);
-*/
 
 console.log(Boolean(0));
 console.log(Boolean(undefined));
@@ -153,3 +152,22 @@ if (money) {
 } else {
   console.log("get a job son");
 }
+*/
+
+const age = "18";
+if (age === 18) console.log("You just became an adult (strict)");
+if (age == 18) console.log("You just became an adult (loose)");
+
+const favorite = Number(prompt("favorite number?"));
+console.log(favorite);
+console.log(typeof favorite); //string
+
+if (favorite === 11) {
+  console.log("11 is a great number");
+} else if (favorite === 7) {
+  console.log("7 is a great number");
+} else {
+  console.log("Number is not 11 or 7");
+}
+
+if (favorite !== 11) console.log("why not 11?");

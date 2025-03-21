@@ -51,3 +51,11 @@ Javascript is:
   - if converted to boolean, these will return false
   - everything else is a truthy value
 
+- comparison operators:
+  - ===: strict operator. does not perfrom type coercion
+    Ex: 18 === 18 is true
+        '18' == 18 is false
+  - ==: loose operator. does perform type coercion
+     Ex: 18 === 18 is true
+        '18' == 18 is also true
+
