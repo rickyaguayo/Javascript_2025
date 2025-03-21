@@ -47,3 +47,7 @@ Javascript is:
       "23" * "2" = 46
       "24" / 2 = 12
 
+- 5 falsy values: 0, '', undefined, null, NaN
+  - if converted to boolean, these will return false
+  - everything else is a truthy value
+

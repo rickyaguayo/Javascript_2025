@@ -126,7 +126,6 @@ if (birthYear <= 2000) {
 }
 
 console.log(century);
-*/
 
 //type conversion
 console.log("1992" + 18);
@@ -140,3 +139,17 @@ console.log("24" / 2);
 let n = "1" + 1;
 n = n - 1;
 console.log(n);
+*/
+
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean("Ricky"));
+console.log(Boolean({}));
+console.log(Boolean(""));
+
+const money = 0;
+if (money) {
+  console.log("Dont spend it all");
+} else {
+  console.log("get a job son");
+}
