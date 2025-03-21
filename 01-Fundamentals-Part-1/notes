@@ -32,3 +32,18 @@ Javascript is:
 
 - template literals can only take expressions
 
+- type conversion: manually change from one type to another
+- string + number will equal a string with the values concatinated
+  Ex: '1992' + 18 = 199218
+  - to convert to number, use Number()
+  - to convert to string, use String()
+
+- type coercion: JS automatically changes types when mixing two types
+  - when there is a string plus a number, number converts into a struing
+  Ex: const x = 'I am' + 23 + ' years old'
+  x = "I am 23 years old" 
+  - when you minus, times, or division strings get converted to numbers
+  Ex: "23" - "10" - 3 = 10 (number)
+      "23" * "2" = 46
+      "24" / 2 = 12
+

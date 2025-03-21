@@ -105,7 +105,6 @@ console.log(ricky);
 
 const rickyNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
 console.log(rickyNew);
-*/
 
 const age = 15;
 const isOldEnough = age >= 18;
@@ -114,7 +113,7 @@ if (isOldEnough) {
   console.log("Sarah can start drivers license!");
 } else {
   const yearsLeft = 18 - age;
-  console.log(`Sarah is too young. Wait another ${yearsLeft} years`);
+console.log(`Sarah is too young. Wait another ${yearsLeft} years`);
 }
 
 const birthYear = 2012;
@@ -127,3 +126,17 @@ if (birthYear <= 2000) {
 }
 
 console.log(century);
+*/
+
+//type conversion
+console.log("1992" + 18);
+console.log(Number("1992") + 18);
+
+//type coercion
+console.log("Im " + 25 + " years old");
+console.log("23" - "10" - 3);
+console.log("23" * "2");
+console.log("24" / 2);
+let n = "1" + 1;
+n = n - 1;
+console.log(n);
