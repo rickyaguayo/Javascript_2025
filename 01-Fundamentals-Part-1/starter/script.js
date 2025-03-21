@@ -93,7 +93,6 @@ console.log(x, y); // 10 10
 
 const ageAverage = (ageRicky + ageRandom) / 2;
 console.log(ageRicky, ageRandom, ageAverage);
-*/
 
 const firstName = "Ricky";
 const job = "idk";
@@ -101,8 +100,30 @@ const birthYear = 1992;
 const year = 2025;
 
 const ricky =
-  "I'm " + firstName + ", a " + (year - birthYear) + " year old " + job + "!";
+"I'm " + firstName + ", a " + (year - birthYear) + " year old " + job + "!";
 console.log(ricky);
 
 const rickyNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
 console.log(rickyNew);
+*/
+
+const age = 15;
+const isOldEnough = age >= 18;
+
+if (isOldEnough) {
+  console.log("Sarah can start drivers license!");
+} else {
+  const yearsLeft = 18 - age;
+  console.log(`Sarah is too young. Wait another ${yearsLeft} years`);
+}
+
+const birthYear = 2012;
+let century;
+
+if (birthYear <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+
+console.log(century);
