@@ -3,3 +3,32 @@ Javascript is:
 - object-oriented: based on objects for storing most kinds of data
 - multi-paradigm: can use different types of programming styles
 - programming language: instructs computers to do things
+- has dynamic typing. dont have to define data type when storing. JS automatically does this
+  - value holds the type, not the variable
+
+7 Primitive Data types:
+  1. number
+  2. boolean
+  3. string
+  4. null
+  5. undefined
+  6. symbol
+  7. BigInt
+
+- when a variable is undefined, the data type is also undefined
+  Ex: let year;
+      console.log(year); // undefined
+      console.log(typeof year); // undefined
+
+- **: exponents (to the power of)
+  - Ex: 2 ** 3 // 8
+
+- There is precedence within operators. Math operators tends to have higher precedence than comparisons. Etc
+- some operators run left to right and some are right to left
+  - math will be left to right
+  - assignements will be right to left
+- a lot like math precedence (PEMDAS)
+  - * and / will have a higher precedence than + and -
+
+- template literals can only take expressions
+
