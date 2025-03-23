@@ -1,4 +1,4 @@
-Javascript is:
+Javascript:
 - high-level: dont have to worry about complex stuff like memory managment
 - object-oriented: based on objects for storing most kinds of data
 - multi-paradigm: can use different types of programming styles
@@ -21,9 +21,9 @@ Javascript is:
       console.log(typeof year); // undefined
 
 - **: exponents (to the power of)
-  - Ex: 2 ** 3 // 8
+  - Ex: 2 ** 3 = 8
 
-- There is precedence within operators. Math operators tends to have higher precedence than comparisons. Etc
+- There is precedence within operators. Math operators tend to have higher precedence than comparisons. Etc
 - some operators run left to right and some are right to left
   - math will be left to right
   - assignements will be right to left
@@ -39,10 +39,10 @@ Javascript is:
   - to convert to string, use String()
 
 - type coercion: JS automatically changes types when mixing two types
-  - when there is a string plus a number, number converts into a struing
+  - when there is a string plus a number, number converts into a string
   Ex: const x = 'I am' + 23 + ' years old'
   x = "I am 23 years old" 
-  - when you minus, times, or division strings get converted to numbers
+  - when you minus, times, or divide strings get converted to numbers
   Ex: "23" - "10" - 3 = 10 (number)
       "23" * "2" = 46
       "24" / 2 = 12
@@ -51,7 +51,7 @@ Javascript is:
   - if converted to boolean, these will return false
   - everything else is a truthy value
 
-- comparison operators:
+- equality operators:
   - ===: strict operator. does not perfrom type coercion
     Ex: 18 === 18 is true
         '18' == 18 is false
@@ -59,3 +59,21 @@ Javascript is:
      Ex: 18 === 18 is true
         '18' == 18 is also true
 
+- &&, ||, !
+  - ! has precedence over && and ||. when both being used in the same line, the ! will be performed first
+
+- switch/case uses strict comparison
+- must use break between cases or the code will continue to execute
+- use default for invalid options
+
+- Expressions: produces a value
+  Ex: 
+      - 3 + 4
+      - 1992 (a singular value is still a expression)
+      - true && false && !true
+
+- Statements: performs an action but doesnt produce a value
+  Ex: if (23 > 10) {
+    const str = "23 is bigger";
+  }
+  - although the string that is being created is an exppression, the whole if/else block is a statement because we are just going through action but not producing any output
