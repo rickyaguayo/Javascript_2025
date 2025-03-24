@@ -23,7 +23,7 @@ Javascript:
 - **: exponents (to the power of)
   - Ex: 2 ** 3 = 8
 
-- There is precedence within operators. Math operators tend to have higher precedence than comparisons. Etc
+- There is precedence within operators. Math operators tend to have higher precedence than comparisons, etc
 - some operators run left to right and some are right to left
   - math will be left to right
   - assignements will be right to left
@@ -34,7 +34,7 @@ Javascript:
 
 - type conversion: manually change from one type to another
 - string + number will equal a string with the values concatinated
-  Ex: '1992' + 18 = 199218
+  Ex: '1992' + 18 = '199218'
   - to convert to number, use Number()
   - to convert to string, use String()
 
@@ -49,7 +49,7 @@ Javascript:
 
 - 5 falsy values: 0, '', undefined, null, NaN
   - if converted to boolean, these will return false
-  - everything else is a truthy value
+  - everything else is a truthy value (when converted to boolean they return true)
 
 - equality operators:
   - ===: strict operator. does not perfrom type coercion
@@ -68,12 +68,12 @@ Javascript:
 
 - Expressions: produces a value
   Ex: 
-      - 3 + 4
-      - 1992 (a singular value is still a expression)
-      - true && false && !true
+    - 3 + 4
+    - 1992 (a singular value is still a expression)
+    - true && false && !true
 
 - Statements: performs an action but doesnt produce a value
   Ex: if (23 > 10) {
     const str = "23 is bigger";
   }
-  - although the string that is being created is an exppression, the whole if/else block is a statement because we are just going through action but not producing any output
+  - although the string that is being created is an expression, the whole if/else block is a statement because we are just going through action but not producing any output

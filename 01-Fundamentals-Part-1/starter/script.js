@@ -1,35 +1,35 @@
 /*
-// let ricky = "bored";
+let ricky = "bored";
 
-// console.log(40 + 8 + 23 - 10);
-// console.log("Ricky");
-// console.log(23);
+console.log(40 + 8 + 23 - 10);
+console.log("Ricky");
+console.log(23);
 
-// let firstName = "Ricky";
-// console.log(firstName);
+let firstName = "Ricky";
+console.log(firstName);
 
-// // Variables
-// let ricky_ricardo = "RR";
-// let $function = 27;
+// Variables
+let ricky_ricardo = "RR";
+let $function = 27;
 
-// let person = "ricky";
-// let PI = 3.1415;
+let person = "ricky";
+let PI = 3.1415;
 
-// let myFirstJob = "referee";
-// let myCurrentJob = "idk bro";
+let myFirstJob = "referee";
+let myCurrentJob = "idk bro";
 
-// let job1 = "IHOP";
-// let job2 = "Chilis";
+let job1 = "IHOP";
+let job2 = "Chilis";
 
-// console.log(myFirstJob);
+console.log(myFirstJob);
 
 let jsIsFun = true;
 console.log(jsIsFun);
 
-// console.log(typeof true);
+console.log(typeof true);
 console.log(typeof jsIsFun);
-// console.log(typeof 23);
-// console.log(typeof "ricky");
+console.log(typeof 23);
+console.log(typeof "ricky");
 
 jsIsFun = "i guess";
 console.log(typeof jsIsFun);
@@ -113,7 +113,7 @@ if (isOldEnough) {
   console.log("Sarah can start drivers license!");
 } else {
   const yearsLeft = 18 - age;
-console.log(`Sarah is too young. Wait another ${yearsLeft} years`);
+  console.log(`Sarah is too young. Wait another ${yearsLeft} years`);
 }
 
 const birthYear = 2012;
@@ -178,11 +178,11 @@ console.log(hasDriversLicense && hasGoodVision);
 console.log(hasDriversLicense || hasGoodVision);
 console.log(!hasDriversLicense);
 
-// if (hasDriversLicense && hasGoodVision) {
-  //   console.log("Sarah is able to drive!");
-  // } else {
-    //   console.log("Someone else should drive");
-    // }
+if (hasDriversLicense && hasGoodVision) {
+    console.log("Sarah is able to drive!");
+  } else {
+      console.log("Someone else should drive");
+  }
     
     const isTired = false; // C
     console.log(hasDriversLicense && hasGoodVision && isTired);
