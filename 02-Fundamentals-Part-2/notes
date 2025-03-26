@@ -1,0 +1,17 @@
+strict mode:
+  - must be on first line of file. anything before wont be strict
+  - lets you write more secure code. forbids you to do certain things and helps bring up errors
+
+- Function Declarations vs Expressions
+  - declarations give the function itself a name
+  - can be called before they are declared in the code
+  Ex: function calcAge(birthYear){}
+
+  - expressions are function value stored in a variable
+  - cannot be called before being declared
+  Ex: const calcAge = function (birthYear) {}
+
+- Arrow functions
+  - like function expressions
+  Ex: const calcAge = birthYear => 2037 - birthYear
+  - has explicit returns for one line arrow functions
