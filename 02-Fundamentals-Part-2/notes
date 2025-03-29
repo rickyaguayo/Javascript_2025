@@ -15,3 +15,23 @@ strict mode:
   - like function expressions
   Ex: const calcAge = birthYear => 2037 - birthYear
   - has explicit returns for one line arrow functions
+
+- Arrays
+  - can create an array with new Array(), but this is way less common
+    Ex: const years = new Array(1991, 1992, 1996)
+
+- Array Methods:
+  - .push: adds item to end of array. returns length
+  - .unshift: adds item to the beginning of array. returns length
+  - .pop: removes last item of array. returns removed element
+  - .shift: removes first item of array. returns removed element
+  - .indexOf: returns index of item. if item is not in array, -1 is returned
+  - .includes: returns boolean if item is present
+
+- Objects:
+  - when using bracket notation, the key must be in quotes
+    Ex: ricky['lastName']
+  - bracket notation can take expressions, dot notation cannot
+    Ex: ricky['first' + nameKey] (nameKey = 'Name')
+  - can only take object expressions as a key in key/value pair
+  - a function as a value is a method
