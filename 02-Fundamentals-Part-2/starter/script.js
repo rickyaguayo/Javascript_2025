@@ -251,6 +251,20 @@ const ricky = {
     }
     
     console.log(ages);
+    
+    const ricky = [
+      "Ricky",
+      "Aguayo",
+      2037 - 1992,
+      "idk",
+      ["Michael", "Peter", "Steven"],
+    ];
+    
+    for (let i = 0; i < ricky.length; i++) {
+      // if (typeof ricky[i] !== "string") continue;
+      if (typeof ricky[i] === "number") break;
+      console.log(ricky[i], typeof ricky[i]);
+    }
 */
 
 const ricky = [
@@ -261,8 +275,13 @@ const ricky = [
   ["Michael", "Peter", "Steven"],
 ];
 
-for (let i = 0; i < ricky.length; i++) {
-  // if (typeof ricky[i] !== "string") continue;
-  if (typeof ricky[i] === "number") break;
-  console.log(ricky[i], typeof ricky[i]);
+for (let i = ricky.length - 1; i >= 0; i--) {
+  console.log(ricky[i]);
+}
+
+for (let exercise = 1; exercise <= 3; exercise++) {
+  console.log(`---Starting Exercise ${exercise}---`);
+  for (let rep = 1; rep <= 5; rep++) {
+    console.log(`Rep ${rep}`);
+  }
 }
