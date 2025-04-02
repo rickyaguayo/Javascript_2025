@@ -35,3 +35,7 @@ strict mode:
     Ex: ricky['first' + nameKey] (nameKey = 'Name')
   - can only take object expressions as a key in key/value pair
   - a function as a value is a method
+
+- For loops:
+  - continue keywork skips an iteration usually depending on a condition
+  - break keyword takes you out of the loop as soon as a condition is met

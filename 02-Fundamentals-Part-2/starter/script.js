@@ -184,7 +184,6 @@ console.log(ricky);
 
 const challenge = `${ricky.firstName} has ${ricky.friends.length} friends, and his best friend's name is ${ricky.friends[0]}.`;
 console.log(challenge);
-*/
 
 const ricky = {
   firstName: "Ricky",
@@ -193,32 +192,77 @@ const ricky = {
   job: "idk",
   friends: ["Michael", "Peter", "Steven"],
   hasDriversLicense: true,
-
+  
   // calcAge: function (birthYear) {
-  //   return 2037 - birthYear;
-  // },
+    //   return 2037 - birthYear;
+    // },
+    
+    // calcAge: function () {
+      //   return 2037 - this.birthYear;
+      // },
+      
+      calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+      },
+      
+      getSummary: function () {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${
+          ricky.job
+        }, and he has ${this.hasDriversLicense ? "a" : "no"} drivers license.`;
+      },
+    };
+    
+    console.log(ricky.calcAge());
+    console.log(ricky.age);
+    console.log(ricky.age);
+    console.log(ricky.age);
+    console.log(ricky.age);
+    // console.log(ricky["calcAge"](1992));
+    
+    console.log(ricky.getSummary());
+    
+    for (let i = 1; i <= 10; i++) {
+      console.log(`Lifting weights rep ${i}`);
+    }
+    
+    const ricky = [
+      "Ricky",
+      "Aguayo",
+      2037 - 1992,
+      "idk",
+      ["Michael", "Peter", "Steven"],
+    ];
+    
+    let types = [];
+    
+    for (let i = 0; i < ricky.length; i++) {
+      // console.log(ricky[i], typeof ricky[i]);
+      // newArray.push(typeof ricky[i]);
+      types[i] = typeof ricky[i];
+    }
+    console.log(types);
+    
+    const years = [1992, 2007, 1967, 2020];
+    const ages = [];
+    
+    for (let i = 0; i < years.length; i++) {
+      ages.push(2037 - years[i]);
+    }
+    
+    console.log(ages);
+*/
 
-  // calcAge: function () {
-  //   return 2037 - this.birthYear;
-  // },
+const ricky = [
+  "Ricky",
+  "Aguayo",
+  2037 - 1992,
+  "idk",
+  ["Michael", "Peter", "Steven"],
+];
 
-  calcAge: function () {
-    this.age = 2037 - this.birthYear;
-    return this.age;
-  },
-
-  getSummary: function () {
-    return `${this.firstName} is a ${this.calcAge()}-year old ${
-      ricky.job
-    }, and he has ${this.hasDriversLicense ? "a" : "no"} drivers license.`;
-  },
-};
-
-console.log(ricky.calcAge());
-console.log(ricky.age);
-console.log(ricky.age);
-console.log(ricky.age);
-console.log(ricky.age);
-// console.log(ricky["calcAge"](1992));
-
-console.log(ricky.getSummary());
+for (let i = 0; i < ricky.length; i++) {
+  // if (typeof ricky[i] !== "string") continue;
+  if (typeof ricky[i] === "number") break;
+  console.log(ricky[i], typeof ricky[i]);
+}
