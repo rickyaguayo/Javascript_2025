@@ -265,23 +265,43 @@ const ricky = {
       if (typeof ricky[i] === "number") break;
       console.log(ricky[i], typeof ricky[i]);
     }
+    
+    const ricky = [
+      "Ricky",
+      "Aguayo",
+      2037 - 1992,
+      "idk",
+      ["Michael", "Peter", "Steven"],
+    ];
+    
+    for (let i = ricky.length - 1; i >= 0; i--) {
+      console.log(ricky[i]);
+    }
+    
+    for (let exercise = 1; exercise <= 3; exercise++) {
+      console.log(`---Starting Exercise ${exercise}---`);
+      for (let rep = 1; rep <= 5; rep++) {
+        console.log(`Rep ${rep}`);
+      }
+    }
+    
+    // for (let i = 1; i <= 10; i++) {
+      //   console.log(`Lifting weights rep ${i}`);
+      // }
+      
+      let rep = 1;
+      while (rep <= 10) {
+        console.log(`Rep ${rep}`);
+        rep++;
+      }
 */
 
-const ricky = [
-  "Ricky",
-  "Aguayo",
-  2037 - 1992,
-  "idk",
-  ["Michael", "Peter", "Steven"],
-];
+let dice = Math.trunc(Math.random() * 6) + 1;
+// console.log(dice);
 
-for (let i = ricky.length - 1; i >= 0; i--) {
-  console.log(ricky[i]);
-}
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
 
-for (let exercise = 1; exercise <= 3; exercise++) {
-  console.log(`---Starting Exercise ${exercise}---`);
-  for (let rep = 1; rep <= 5; rep++) {
-    console.log(`Rep ${rep}`);
-  }
+  if (dice === 6) console.log("Loop is ending");
 }
