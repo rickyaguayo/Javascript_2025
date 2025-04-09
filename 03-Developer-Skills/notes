@@ -1,0 +1,12 @@
+4 step problem solving method:
+  1. Ask the right questions to get a clear picture of the task
+  2. Break up bigger problems into smaller problems
+  3. Do as much research as possible
+  4. write psuedo code before writing real code
+
+console.log() - logs to the console
+console.warn() - logs to the console with a warning flag and yellow background
+console.error() - logs to the console with an error flag and red background
+console.table() - shows objects within an organized table
+
+debugger; - automaticaly triggers the debugger in the console where ever you write it in your code

@@ -1,6 +1,6 @@
 strict mode:
   - must be on first line of file. anything before wont be strict
-  - lets you write more secure code. forbids you to do certain things and helps bring up errors
+  - lets you write more secure code, forbids you to do certain things and helps bring up errors
 
 - Function Declarations vs Expressions
   - declarations give the function itself a name
@@ -37,5 +37,5 @@ strict mode:
   - a function as a value is a method
 
 - For loops:
-  - continue keywork skips an iteration usually depending on a condition
+  - continue keyword skips an iteration usually depending on a condition
   - break keyword takes you out of the loop as soon as a condition is met
