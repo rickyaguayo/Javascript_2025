@@ -134,5 +134,64 @@ const printForecast = (arr) => {
   return str;
 };
 
-console.log(printForecast([17, 21, 23]));
+// console.log(printForecast([17, 21, 23]));
 // printForecast([12 ,5 ,-5, 0, 4])
+
+// const a = () => {
+//   const b = 2;
+//   return { b };
+// };
+
+// console.log(a());
+
+function analyzeWorkWeek(workHours) {
+  // Ensure the input array has exactly 7 days
+  if (workHours.length !== 7) {
+    throw new Error("Input array must have exactly 7 days.");
+  }
+
+  // Array to map the index to actual weekday names
+  const weekdays = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  // Calculate total hours worked
+  const totalHours = workHours.reduce((acc, hours) => acc + hours, 0);
+
+  // Calculate average daily hours, rounding to one decimal place
+  const averageDailyHours = (totalHours / workHours.length).toFixed(1);
+
+  // Find the day with the most hours worked
+  const mostHoursIndex = workHours.indexOf(Math.max(...workHours));
+  const mostHoursDay = weekdays[mostHoursIndex]; // Get the weekday name corresponding to the index
+
+  // Calculate the number of days worked (days with more than 0 hours)
+  const daysWorked = workHours.filter((hours) => hours > 0).length;
+
+  // Check if the week was full-time (worked 35 hours or more)
+  const isFullTime = totalHours >= 35;
+
+  // Return the result as an object
+  return {
+    totalHours,
+    averageDailyHours: parseFloat(averageDailyHours), // Convert string back to float
+    mostHoursDay,
+    daysWorked,
+    isFullTime,
+  };
+}
+
+// Example usage
+const workHours = [8, 7.5, 9, 6, 8, 0, 5]; // Example array of hours worked per day (Mon to Sun)
+try {
+  const result = analyzeWorkWeek(workHours);
+  console.log(result);
+} catch (error) {
+  console.log(error.message);
+}
