@@ -1,0 +1,6 @@
+Document Object Model (DOM) - structured representation of HTML documents. Allows JS to access HTML elements and styles to manipulate them
+  - bridge between js and HTML/CSS
+  - document is the entry point for the DOM
+
+Event handler - the function that is passed into the event listener
+  - the event handler is never called. it is initiated by the js engine whenever the event (that its attached to) happens
