@@ -1,0 +1,2 @@
+- .querySelector() only returns the first instance if there is one or more elements that can be selected by it
+  - to access them all, .querySelectorAll() can be used and looped through all the instances
