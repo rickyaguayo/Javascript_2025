@@ -1,2 +1,8 @@
 - .querySelector() only returns the first instance if there is one or more elements that can be selected by it
   - to access them all, .querySelectorAll() can be used and looped through all the instances
+
+- .classList lets you modify the classes on an element with methods like .remove or .add
+  - when using these methods, the class selector (.) is not required
+  Ex: modal.classList.remove('hidden')
+
+- keyboard events should be tied to the document
