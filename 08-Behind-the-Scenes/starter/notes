@@ -1,0 +1,90 @@
+Javascript is:
+- High Level: 
+  - does not have to worry about resource allocations because js has abstractions that takes care of that
+  - although this is nice to have, the downside is that it will never be as fast as a low level language like C that requires one to do allocation manually
+
+- Garbage collected: 
+  - js has an algorithm that gets rid of unnecessary memory usage
+
+- Interpreted/Just-in-time compiled:
+  - every language requires an abstraction that takes human code and compiles into machine code (1s and 0s). js is no different.
+  - this happens inside the js engine
+
+- Multi-paradigm: 
+  - Paradigm: approach/mindset of structuring code that influences coding style and technique
+  - Differenct styles include: Procedural programming, Object oriented programming (OOP) and Functional programming (FP)
+  - can also be split between imperative and declarative programming
+  - js is versatile enough that people can code in different styles
+  - up to this point we have done only procedural
+
+- Prototype-based object oriented
+  - almost everything in js is an object (other than primitives like numbers)
+  - prototypal inheritance: anything that is an object has a prototype blueprint that is inherited. this blueprint has methods that are attached that help whatever is being used. 
+  Ex: when an array is created, with it comes and Array blueprint (object) so that we may access array methods like .push() and .pop()
+
+- First class functions
+  - functions are treated as variables. so you can pass them into functions and return functions
+
+- Dynamic typed
+  - we do not need to type our variables. the js engine does it on its own at runtime. also automatically changes if we change a variable from to string to number, etc
+
+- Single-threaded
+  - concurrency model: how the js engine handles multiple tasks at once
+    - we need this because js is single threaded
+  - thread: set of instructions thats executed in the CPU. where the code is executed in the computers processor
+  - because js is single threaded, only one thing can run at a time. to aliviate any traffic in this there is a non blocking event loop
+
+- Non-blocking event loop
+  - when there are long running tasks, js will put them in the background, waits for it to finish then puts it back in the main loop
+
+Javascript Engine:
+  - program that executes javascript code
+  - all browsers have a js engine like chrome's V8 engine
+  - has 2 parts:
+    - Call stack: where code is executed through execution contexts
+    - Heap: unstructured memory pool that stores all objects that js needs
+  
+Compilation vs Interpretation:
+  - Compilation: entire code is converted into machine code at once and written into a binary/portable file that can be executed by any computer at any time
+    Ex: software on a computer has already converted into machine code and is only executed when software is executed
+    - Source code --Compilation--> portable file (machine code) --Execution--> program running
+  
+  - Interpretation: interpreter runs through source code and executes line by line
+    - Source Code ---Execution line by line---> Program running
+  - code still needs to be converted, but with interpretation, it does it right before the program runs, not ahead of time
+  - js used to be like this but this made it very slow
+
+  - Just-in-time (JIT) compilation:
+    - entire code is converted into machine code at once then executed immediately.
+    - Source code --Compilation--> Machine code (no portable file) --Execution (happens immediately)--> program running
+    - this is how JS is now
+
+JIT steps in the JS engine:
+  1. Parsing: code is read and assembles the abstract syntax tree (AST)
+    - in the AST are parts of the code that are important to the language (let, const, function, etc) and saving these pieces in a structured way
+    - also checks for syntax errors
+  2. Compilation: takes AST and compiles it into machine code
+  3. Execution: executes the machine code from compilation
+    - happens in the call stack
+    - optimization happens during this step:
+      - the engine will continously compile and execute to make the code more effecient
+      - the first instance of compilation and execution will not be the most effecient version of the code. this is to have something to execute quickly. it will then run compilation and execution to make the code more effecient all while still executing
+  
+  - all this is separate from the js main thread and is not accessible through code
+
+JS runtime:
+  - most common runtime is the browswer
+  - Container for all things that we need to use in js (the JS engine, Web APIs, and the callback queue)
+  - the heart of any JS runtime is the JS engine (heap and call stack)
+  - Web APIs:
+    - functionalities that are accessible to JS through the window object but not actually part of JS
+    - includes the DOM, APIs (like console.log()), the fetch API, etc
+  - Callback queue:
+    - contains all callback functions that we need in the program
+    Ex: event listeners, timers
+    - the event loop is the connection between the callback queue and the call stack
+  - there are other JS runtimes that arent browsers and those look a little different (no web APIs)
+
+
+
+
