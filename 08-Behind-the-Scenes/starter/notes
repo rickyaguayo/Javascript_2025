@@ -85,6 +85,32 @@ JS runtime:
     - the event loop is the connection between the callback queue and the call stack
   - there are other JS runtimes that arent browsers and those look a little different (no web APIs)
 
+Execution Context (EC):
+- environment where a piece of JS is executed. stores all necessary info for the code to execute
+- During execution: 
+  1. the global execution context is created first. contains all top level code that is not inside of a function
+    - this saves and prepares the functions that are declared in the top level, but not ran
+    - there is only ever one global EC
+  2. then top level code is executed inside the global EC
+  3. finally other functions are executed and callbacks wait to be called
+    - there is one EC for every function, every function call and methods with all the necessary information to run that function
+    - all of the ECs together make up the call stack
+    - once all the functions are executed, the call stack waits for callbacks to be called like click events
+      - event loop is what brings the callbacks to the call stack
 
+- Execution Context anatomy:
+  1. Variable environment
+    - let, const and var declarations
+    - functions
+    - argument objects
+  2. Scope chain
+  3. this keyword
 
+  - these 3 things are created during the creation phase right before execution
+  - arrow functions do not get an arguments object or a this keyword
+    - arrow functions borrow these two things from their closest regular function parent
+  - the value of each variable or function is not known during creation, only till execution happens
+  - the call stack is made up of ECs stacked upon each other to keep track of where we are in execution
+    - the exectution of theses ECs depend on how functions are called, but only thing is ran at a time (single threaded)
+    - ECs can be paused if there is function inside a function. the outer function (EC) will pause to allow the inner function to finish. the the thread will return to the outer function
 
