@@ -193,6 +193,32 @@ if (myName === "Ricky") {
 - the first console.log will return "ReferenceError: Cannot access job before initilization" because we are trying to access job in its TDZ
 - the last console.log will return "ReferenceError: x is not defined" because there is no x variable in the scope
 
- 
+This keyword:
+- special variable created for every EC
+- takes the value of (points to) the "owner" of the function in which the this keyword is used
+- 'this' is not static.
+  - depends on how the function is called
+  - value is assigned only when the function is called
+- Few different ways to call a function and 'this' plays behaves
+  1. Method: this = object that is calling methods
+  Ex: const ricky = {
+    name: "ricky",
+    year: 1992,
+    calcAge: function () {
+      return 2037 - this.year
+    }
+  }
+  ricky.calcAge() // 45 
+  - because calcAge is being called on the ricky object, this will also point to the ricky object
+  2. Simple function call: this = undefined (only in strict mode)
+    - if not in strict mode, this will point to the global window object
+  3. Arrow functions: this = this keyword of closest parent function (lexical this)
+    - arrow functions dont get their own this keyword
+  4. Event listener: this = DOM element that the handler is attached to
+  5. new, call, apply, bind (later in the course)
+
+  - 'this' does not point to the function itself and also not its variable environment
+
+
 
 
