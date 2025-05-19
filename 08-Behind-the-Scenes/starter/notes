@@ -138,6 +138,7 @@ Hoisting:
   - before execution, code is scanned for variable declarations. 
     - for each new variable, a new property is created in the variable environment object
   - helps use functions before actual declarations (recursion, etc)
+    - the only function you can use before declaring it is a function declaration
   - var hoisting is a byproduct of function hoisting
   
   - How different variable/function declarations behave with hoisting:
@@ -155,6 +156,19 @@ Hoisting:
       - Scope: Block
     - Function expressions and arrows: 
       - depends if using var or let/const
+
+  - calling a function expression or arrow function that is declared with var wont work even though it is hoisted. this is becuase the function is undefined until called.
+  Ex: conosle.log(add(2, 3)) 
+  // js will run this as console.log(undefined(2,3)) because the function variable was hoisted without its definition. wont be defined until declaration
+
+  var add = (a, b) => {
+    return a + b;
+  }
+
+  - using var on the global scope will create a property of the same name in the window object
+    Ex: var x = 1;
+    x === window.x (returns true)
+    - let and const will not create a property in the window object
 
 Temporal Dead Zone (TDZ):
 - region of the scope that a variable is defined, but cant be used in any way

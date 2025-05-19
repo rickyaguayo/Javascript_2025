@@ -1,31 +1,33 @@
 'use strict';
 
-// const a = 'ricky';
-// first();
+///////////SCOPING//////////////
+/*
+const a = 'ricky';
+first();
 
-// function first() {
-//   const b = 'hello';
-//   second();
+function first() {
+  const b = 'hello';
+  second();
 
-//   function second() {
-//     const c = 'Hi';
-//     third();
-//   }
-// }
+  function second() {
+    const c = 'Hi';
+    third();
+  }
+}
 
-// function third() {
-//   const d = 'hey!';
-//   console.log(d + a);
-// }
+function third() {
+  const d = 'hey!';
+  console.log(d + a);
+}
 
-// let a = true;
+let a = true;
 
-// if (a) {
-//   var b = 'ricky';
-// } else {
-//   var c = 'not ricky';
-// }
-// console.log(a, b, c);
+if (a) {
+  var b = 'ricky';
+} else {
+  var c = 'not ricky';
+}
+console.log(a, b, c);
 
 function calcAge(birthYear) {
   const age = 2037 - birthYear;
@@ -61,3 +63,44 @@ function calcAge(birthYear) {
 
 const firstName = 'Ricky';
 calcAge(1992);
+
+///////////HOISTING//////////////
+// variables
+console.log(me);
+// console.log(job);
+// console.log(year);
+
+var me = 'Ricky';
+let job = 'engineer';
+const year = 1992;
+
+// functions
+console.log(addDecl(2, 3));
+console.log(addExpr(2, 3));
+console.log(addArr(2, 3));
+
+function addDecl(a, b) {
+  return a + b;
+}
+
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+const addArr = (a, b) => {
+  return a + b;
+};
+
+if (!numProducts) deleteShoppingCart();
+console.log(numProducts);
+
+var numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log('Shopping cart emptied!');
+}
+*/
+
+var x = 1;
+let y = 2;
+const z = 3;
