@@ -103,4 +103,86 @@ function deleteShoppingCart() {
 var x = 1;
 let y = 2;
 const z = 3;
-*/
+
+///////////THIS KEYWORD//////////////
+
+console.log(this); //returns window object
+
+const calcAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this); // regular function call
+  // undefined unless strict mode is turned off (window object if it was)
+};
+calcAge(1992);
+
+const calcAgeArrow = birthYear => {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+calcAgeArrow(1991);
+
+const ricky = {
+  year: 1992,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+  },
+};
+
+ricky.calcAge();
+
+const monica = {
+  year: 1991,
+};
+
+monica.calcAge = ricky.calcAge; // method borrowing
+monica.calcAge();
+
+const z = ricky.calcAge;
+z(); // undefined because this is now a simple function call (no owner/object attached)
+
+// REGULAR FUNCTIONS VS ARROW FUNCTIONS AS/INSIDE METHODS
+const ricky = {
+  firstName: 'Ricky',
+  year: 1992,
+  
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+    
+    // // PRE-ES6 SOLUTION
+    // const self = this; // 'self' or 'that'
+    
+    // const isMillenial = function () {
+      //   console.log(self.year >= 1981 && self.year <= 1996);
+      // };
+      // isMillenial(); //undefined becuase its a simple function call. needs owner/object attached
+      
+      // POST-ES6 SOLUTION
+      const isMillenial = () => {
+        console.log(this.year >= 1981 && this.year <= 1996);
+      };
+      isMillenial();
+    },
+    
+    greet: () => {
+      console.log(`Hey ${this.firstName}`);
+    },
+  };
+  
+  ricky.greet(); // returns "Hey undefined" because of arrow function. would be "Hey Ricky" if it was a regular function expression
+  ricky.calcAge();
+  */
+
+///////////ARGUMENTS KEYWORD//////////////
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+addExpr(2, 5);
+addExpr(2, 5, 3, 1);
+
+const addArr = (a, b) => {
+  return a + b;
+};

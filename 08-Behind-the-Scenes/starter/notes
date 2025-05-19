@@ -211,6 +211,7 @@ This keyword:
   ricky.calcAge() // 45 
   - because calcAge is being called on the ricky object, this will also point to the ricky object
   2. Simple function call: this = undefined (only in strict mode)
+    - applies to functions that arent attached/owned by an object
     - if not in strict mode, this will point to the global window object
   3. Arrow functions: this = this keyword of closest parent function (lexical this)
     - arrow functions dont get their own this keyword
@@ -218,6 +219,18 @@ This keyword:
   5. new, call, apply, bind (later in the course)
 
   - 'this' does not point to the function itself and also not its variable environment
+  - method borrowing: borrowing a method from one object and copying it to another
+  
+  - Regular functions vs arrow functions:
+    - because arrow functions dont have a this keyword, its best not to use them as methods in objects
+    - Regular function inside a method: if function referencing "this" then it will be undefined unless "this" is given a value (self or that) before the function declaration // pre-ES6
+    - Arrow function inside a method: no need for a self variable because arrow functions dont have a this keywork // post-ES6
+  
+Arguments keyword:
+- array with arguments that are passed into a function
+- returns undefined for arrow functions
+- helpful to see arguments if more arguments are passed than needed
+- not used as much anymore with more modern solutions
 
 
 
