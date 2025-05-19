@@ -133,6 +133,52 @@ Scope:
     - organized by how the functions are WRITTEN in the code
     - has nothing to do with how they are CALLED in the code (the call stack takes care of this)
 
+Hoisting:
+  - makes some types of variables accessible/usable in the code before declared. Variable lifted to the top of their scope
+  - before execution, code is scanned for variable declarations. 
+    - for each new variable, a new property is created in the variable environment object
+  - helps use functions before actual declarations (recursion, etc)
+  - var hoisting is a byproduct of function hoisting
+  
+  - How different variable/function declarations behave with hoisting:
+    - Function declarations: 
+      - Hoisted: Yes
+      - Initial value: actual function
+      - Scope: Block (with strict mode)
+    - var variables: 
+      - Hoisted: Yes
+      - Initial value: undefined
+      - Scope: function
+    - let/const variables: 
+      - Hoisted: No
+      - Initial value: <uninitialized>, TDZ
+      - Scope: Block
+    - Function expressions and arrows: 
+      - depends if using var or let/const
+
+Temporal Dead Zone (TDZ):
+- region of the scope that a variable is defined, but cant be used in any way
+- let and const get their own TDZ that starts at the beginning of the scope until the line where it is defined.
+  - that variable is only safe to use after the line where its defined
+- in place to avoid and catch errors. bad practice to access variables before declaration
+- helps const variables work
+  - doesnt allow const to be reassigned
+  - only assigned when execution reaches the declaration 
+
+Ex: const myName = "Ricky"
+
+if (myName === "Ricky") {
+  console.log(`${myName} is a ${job}`);
+  const age = 2037 - 1992;
+  console.log(age)
+  const job = "engineer";
+  console.log(x)
+}
+
+- the TDZ for the job variable is the 3 lines before it up to where its declared.
+- the first console.log will return "ReferenceError: Cannot access job before initilization" because we are trying to access job in its TDZ
+- the last console.log will return "ReferenceError: x is not defined" because there is no x variable in the scope
+
  
 
 
