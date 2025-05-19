@@ -12,7 +12,7 @@ Javascript is:
 
 - Multi-paradigm: 
   - Paradigm: approach/mindset of structuring code that influences coding style and technique
-  - Differenct styles include: Procedural programming, Object oriented programming (OOP) and Functional programming (FP)
+  - Different styles include: Procedural programming, Object oriented programming (OOP) and Functional programming (FP)
   - can also be split between imperative and declarative programming
   - js is versatile enough that people can code in different styles
   - up to this point we have done only procedural
@@ -20,19 +20,21 @@ Javascript is:
 - Prototype-based object oriented
   - almost everything in js is an object (other than primitives like numbers)
   - prototypal inheritance: anything that is an object has a prototype blueprint that is inherited. this blueprint has methods that are attached that help whatever is being used. 
-  Ex: when an array is created, with it comes and Array blueprint (object) so that we may access array methods like .push() and .pop()
+  Ex: when an array is created, with it comes and Array blueprint (object) so that include array methods like .push() and .pop() for us to use
 
 - First class functions
   - functions are treated as variables. so you can pass them into functions and return functions
 
-- Dynamic typed
-  - we do not need to type our variables. the js engine does it on its own at runtime. also automatically changes if we change a variable from to string to number, etc
+- Dynamically typed
+  - we do not need to type our variables, the js engine does it on its own at runtime
+  - automatically changes if we change a variable from to string to number, etc
 
 - Single-threaded
   - concurrency model: how the js engine handles multiple tasks at once
     - we need this because js is single threaded
   - thread: set of instructions thats executed in the CPU. where the code is executed in the computers processor
-  - because js is single threaded, only one thing can run at a time. to aliviate any traffic in this there is a non blocking event loop
+  - because js is single threaded, only one thing can run at a time
+  - to aleviate any traffic within the thread, there is a non blocking event loop
 
 - Non-blocking event loop
   - when there are long running tasks, js will put them in the background, waits for it to finish then puts it back in the main loop
@@ -55,13 +57,13 @@ Compilation vs Interpretation:
   - js used to be like this but this made it very slow
 
   - Just-in-time (JIT) compilation:
-    - entire code is converted into machine code at once then executed immediately.
+    - entire code is converted into machine code at once then executed immediately
     - Source code --Compilation--> Machine code (no portable file) --Execution (happens immediately)--> program running
     - this is how JS is now
 
 JIT steps in the JS engine:
   1. Parsing: code is read and assembles the abstract syntax tree (AST)
-    - in the AST are parts of the code that are important to the language (let, const, function, etc) and saving these pieces in a structured way
+    - in the AST are parts of the code that are important to the language (let, const, function, etc) and they are saved these pieces in a structured way
     - also checks for syntax errors
   2. Compilation: takes AST and compiles it into machine code
   3. Execution: executes the machine code from compilation
@@ -95,7 +97,7 @@ Execution Context (EC):
   3. finally other functions are executed and callbacks wait to be called
     - there is one EC for every function, every function call and methods with all the necessary information to run that function
     - all of the ECs together make up the call stack
-    - once all the functions are executed, the call stack waits for callbacks to be called like click events
+    - once all the functions are executed, the call stack waits for callbacks to be called (like click events)
       - event loop is what brings the callbacks to the call stack
 
 - Execution Context anatomy:
@@ -112,5 +114,25 @@ Execution Context (EC):
   - the value of each variable or function is not known during creation, only till execution happens
   - the call stack is made up of ECs stacked upon each other to keep track of where we are in execution
     - the exectution of theses ECs depend on how functions are called, but only thing is ran at a time (single threaded)
-    - ECs can be paused if there is function inside a function. the outer function (EC) will pause to allow the inner function to finish. the the thread will return to the outer function
+    - ECs can be paused if there is function inside a function. the outer function (EC) will pause to allow the inner function to finish. then the thread will return to the outer function
+
+Scope:
+  - Scoping: How our programs variables are organized and accessed by the js engine
+  - Lexical scoping: rules of where we can access variables are based on exactly where in the code functions and blocks are written
+  - Scope: space or environment in which a certain variable is declared
+  - Scope of a variable: region of our code where a certain variable can be accessed
+    - 3 types of scope:
+      - Global: outside of any function or block. Accessible anywhere
+      - Function (Local): variables are accessible only inside the function, not outside
+      - Block: variables are accessible only inside block
+        - only applies to let and const (var is only function scoped)
+        - functions are also block scoped (in strict mode)
+  - Scope Chain:
+    - every scope always has access to all the variable from all its outer scopes (but not inner scopes nor siblings)
+    - Variable Lookup: the engine looks up in the scope chain until it finds the variable its looking for when its not in the current scope
+    - organized by how the functions are WRITTEN in the code
+    - has nothing to do with how they are CALLED in the code (the call stack takes care of this)
+
+ 
+
 
