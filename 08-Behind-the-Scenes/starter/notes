@@ -1,7 +1,7 @@
 Javascript is:
 - High Level: 
   - does not have to worry about resource allocations because js has abstractions that takes care of that
-  - although this is nice to have, the downside is that it will never be as fast as a low level language like C that requires one to do allocation manually
+  - although this is nice to have, the downside is that it will never be as fast as a low level language like C that requires manual allocation
 
 - Garbage collected: 
   - js has an algorithm that gets rid of unnecessary memory usage
@@ -20,7 +20,7 @@ Javascript is:
 - Prototype-based object oriented
   - almost everything in js is an object (other than primitives like numbers)
   - prototypal inheritance: anything that is an object has a prototype blueprint that is inherited. this blueprint has methods that are attached that help whatever is being used. 
-  Ex: when an array is created, with it comes and Array blueprint (object) so that include array methods like .push() and .pop() for us to use
+  Ex: when an array is created, with it comes an Array blueprint (object) so that include array methods like .push() and .pop() for us to use
 
 - First class functions
   - functions are treated as variables. so you can pass them into functions and return functions
@@ -63,7 +63,7 @@ Compilation vs Interpretation:
 
 JIT steps in the JS engine:
   1. Parsing: code is read and assembles the abstract syntax tree (AST)
-    - in the AST are parts of the code that are important to the language (let, const, function, etc) and they are saved these pieces in a structured way
+    - in the AST are parts of the code that are important to the language (let, const, function, etc) are saved in a structured way
     - also checks for syntax errors
   2. Compilation: takes AST and compiles it into machine code
   3. Execution: executes the machine code from compilation
@@ -80,7 +80,7 @@ JS runtime:
   - the heart of any JS runtime is the JS engine (heap and call stack)
   - Web APIs:
     - functionalities that are accessible to JS through the window object but not actually part of JS
-    - includes the DOM, APIs (like console.log()), the fetch API, etc
+    - includes the DOM, APIs (like console.log()), fetch, etc
   - Callback queue:
     - contains all callback functions that we need in the program
     Ex: event listeners, timers
@@ -113,7 +113,7 @@ Execution Context (EC):
     - arrow functions borrow these two things from their closest regular function parent
   - the value of each variable or function is not known during creation, only till execution happens
   - the call stack is made up of ECs stacked upon each other to keep track of where we are in execution
-    - the exectution of theses ECs depend on how functions are called, but only thing is ran at a time (single threaded)
+    - the exectution of theses ECs depend on how functions are called, but only one EC is ran at a time (single threaded)
     - ECs can be paused if there is function inside a function. the outer function (EC) will pause to allow the inner function to finish. then the thread will return to the outer function
 
 Scope:
@@ -121,12 +121,12 @@ Scope:
   - Lexical scoping: rules of where we can access variables are based on exactly where in the code functions and blocks are written
   - Scope: space or environment in which a certain variable is declared
   - Scope of a variable: region of our code where a certain variable can be accessed
-    - 3 types of scope:
-      - Global: outside of any function or block. Accessible anywhere
-      - Function (Local): variables are accessible only inside the function, not outside
-      - Block: variables are accessible only inside block
-        - only applies to let and const (var is only function scoped)
-        - functions are also block scoped (in strict mode)
+  - 3 types of scope:
+    - Global: outside of any function or block. Accessible anywhere
+    - Function (Local): variables are accessible only inside the function, not outside
+    - Block: variables are accessible only inside block
+      - only applies to let and const (var is only function scoped)
+      - functions are also block scoped (in strict mode)
   - Scope Chain:
     - every scope always has access to all the variable from all its outer scopes (but not inner scopes nor siblings)
     - Variable Lookup: the engine looks up in the scope chain until it finds the variable its looking for when its not in the current scope
