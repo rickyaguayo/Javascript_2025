@@ -67,8 +67,8 @@ calcAge(1992);
 ///////////HOISTING//////////////
 // variables
 console.log(me);
-// console.log(job);
-// console.log(year);
+console.log(job);
+console.log(year);
 
 var me = 'Ricky';
 let job = 'engineer';
@@ -150,39 +150,39 @@ const ricky = {
     console.log(this);
     console.log(2037 - this.year);
     
-    // // PRE-ES6 SOLUTION
-    // const self = this; // 'self' or 'that'
+    // PRE-ES6 SOLUTION
+    const self = this; // 'self' or 'that'
     
-    // const isMillenial = function () {
-      //   console.log(self.year >= 1981 && self.year <= 1996);
-      // };
-      // isMillenial(); //undefined becuase its a simple function call. needs owner/object attached
-      
-      // POST-ES6 SOLUTION
-      const isMillenial = () => {
-        console.log(this.year >= 1981 && this.year <= 1996);
-      };
-      isMillenial();
-    },
+    const isMillenial = function () {
+      console.log(self.year >= 1981 && self.year <= 1996);
+    };
+    isMillenial();
     
-    greet: () => {
-      console.log(`Hey ${this.firstName}`);
-    },
-  };
+    // POST-ES6 SOLUTION
+    const isMillenial2 = () => {
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial2();
+  },
   
-  ricky.greet(); // returns "Hey undefined" because of arrow function. would be "Hey Ricky" if it was a regular function expression
-  ricky.calcAge();
-  */
+  greet: () => {
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+
+ricky.greet(); // returns "Hey undefined" because of arrow function. would be "Hey Ricky" if it was a regular function expression
+ricky.calcAge();
 
 ///////////ARGUMENTS KEYWORD//////////////
 const addExpr = function (a, b) {
-  console.log(arguments);
-  return a + b;
-};
-
-addExpr(2, 5);
-addExpr(2, 5, 3, 1);
-
-const addArr = (a, b) => {
-  return a + b;
-};
+    console.log(arguments);
+    return a + b;
+  };
+  
+  addExpr(2, 5);
+  addExpr(2, 5, 3, 1);
+  
+  const addArr = (a, b) => {
+      return a + b;
+    };
+*/
