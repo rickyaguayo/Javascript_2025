@@ -186,3 +186,48 @@ const addExpr = function (a, b) {
       return a + b;
     };
 */
+
+///////////OBJECT REFERENCES//////////////
+const jessica1 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+
+function marryPerson(originalPerson, newLastName) {
+  originalPerson.lastName = newLastName;
+  return originalPerson;
+}
+
+const marriedJessica = marryPerson(jessica1, 'Davis');
+
+// const marriedJessica = jessica1;
+// marriedJessica.lastName = 'Davis';
+
+// console.log('Before:', jessica1);
+// console.log('After:', marriedJessica);
+
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+// shallow copy
+const jessicaCopy = { ...jessica };
+jessicaCopy.lastName = 'Davis';
+
+// jessicaCopy.family.push('Mary');
+// jessicaCopy.family.push('John');
+
+// console.log('Before:', jessica);
+// console.log('After:', jessicaCopy);
+
+// deep copy
+const jessicaClone = structuredClone(jessica);
+jessicaClone.family.push('Mary');
+jessicaClone.family.push('John');
+
+console.log('Original:', jessica);
+console.log('Clone:', jessicaClone);

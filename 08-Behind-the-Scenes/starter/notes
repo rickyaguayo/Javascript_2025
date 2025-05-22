@@ -233,6 +233,44 @@ Arguments keyword:
 - helpful to see arguments if more arguments are passed than needed
 - not used as much anymore with more modern solutions
 
+Memory Management:
+- how the js engine allocates space in memory for creating variables and later frees up space taken up by the variables that are no longer needed
+- unlike lower level languages, memory is automatically managed by js behind the scenes
+- every value created in js goes through a memory lifecycle:
+  1. Allocate memory: whenever we assign a value to a new variable, the engine automatically allocates a piece of memory to store the value
+  2. Use memory: while code is running, the value is written, read and updated in the allocated piece of memory
+  3. Release memory: When no longer needed, the value is deleted from memory to free up resources. The released memory is used for new values
+- Objects are stored in the heap, primitives are stored within ECs in the call stack
+- if a preexisting primitive is used to create a new primitive, a copy will be made 
+  Ex: const age = 32;
+      const newAge = age;
+  - in memory, both variables will have an instance of 32
+  - so if newAge is changed later, age remains unchanged
+- when an object is created, they do not hold the objects themselves, just an object reference
+- the name of the object will live in the call stack, but the key/value pairs will live in the heap
+  Ex: const obj1 = {
+    year: 1992,
+    location: 'Denver',
+    music: [trumpet, guitar]
+  }
+- the variable name 'obj1' will live in the call stack. everything inside will be in the heap
+- the object reference (memory address) connects it to the object in the heap
+- when creating a new object based on a preexisting object, the new object doesnt make a copy like primitives. it just references the preexisting object
+Ex: const obj2 = obj;
+- the obj2 object doesnt create a new object, it references the obj1 object
+- if a change is made in the obj2, because both objects are referencing the same object, it will also change obj1
+Ex: obj2.location = 'Dallas';
+    console.log(obj1) // obj1 = {year: 1992, location: 'Dallas'}
 
+- when copying only the first level of an object, only a shallow copy will be made
+- changing an object within an object will reflect in both objects even when they have their own reference
+Ex: const obj3 = { ...obj1 }
+obj3.music.push('piano')
+- both obj1 and obj3 music array will have 'piano' even though we push it to obj3
+- this is because the music property is stored in the same way. the key in the call stack with a reference to the heap. therefore if one is changed, they will both change
 
-
+- using structuredClone() creates deep clone of objects meaning the clone will get every layer of that object
+- this way the objects can be modified without changing another
+Ex: const obj4 = structuredClone(obj1)
+obj4.music.push('piano')
+- only obj4 will get 'piano' in the music property
