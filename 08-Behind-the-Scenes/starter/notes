@@ -65,7 +65,7 @@ Compilation vs Interpretation:
 JIT steps in the JS engine:
   1. Parsing: code is read and assembles the abstract syntax tree (AST)
     - in the AST are parts of the code that are important to the language (let, const, function, etc) are saved in a structured way
-    - also checks for syntax errors
+    - checks for syntax errors
   2. Compilation: takes AST and compiles it into machine code
   3. Execution: executes the machine code from compilation
     - happens in the call stack
@@ -256,7 +256,7 @@ Memory Management:
 - the variable name 'obj1' will live in the call stack. everything inside will be in the heap
 - the object reference (memory address) connects it to the object in the heap
 - when creating a new object based on a preexisting object, the new object doesnt make a copy like primitives. it just references the preexisting object
-Ex: const obj2 = obj;
+Ex: const obj2 = obj1;
 - the obj2 object doesnt create a new object, it references the obj1 object
 - if a change is made in the obj2, because both objects are referencing the same object, it will also change obj1
 Ex: obj2.location = 'Dallas';
@@ -274,3 +274,23 @@ obj3.music.push('piano')
 Ex: const obj4 = structuredClone(obj1)
 obj4.music.push('piano')
 - only obj4 will get 'piano' in the music property
+
+Garbage Colelction:
+- runs over and over while application is being used to assure clean memory
+- How is memory freed up after the value is no longer needed?
+  - Call stack:
+    - variable environment is simply deleted when the EC is popped off the call stack
+    - global EC persists since it will never be removed from the call stack. therefore anything in the EC that references something in the heap will forever be in the heap
+    
+  - Heap: garbage collection (central memory management tool)
+    - garbage collection is a part of the js engine. it is unreachable via code and cannot be modified
+    - mark-and-sweep algorithm: 
+      - Marks all objects that are reachable from a root that is 'alive'
+        - Roots are starting points for 'alive' objects
+          - this could be an EC, an active timer, active event listener, closure, etc
+        - something that is 'alive' is something that is being referenced by the active roots
+      - Sweep deletes unmarked (unreachable) objects and reclaim memory for future allocations
+
+  - Memory leak: when objects that are no longer needed are incorrectly still reachable and therefore not being garbage collected
+    - this can happen when there is an object in the global EC. it will persist in the heap even if we no longer need it. (also unnecessary event listeners and timers)
+    - to avoid memory leaks, always deactivate timers, event listeners, and dont declare large objects globally
