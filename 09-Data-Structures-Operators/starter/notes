@@ -1,0 +1,33 @@
+Destructuring:
+  - a way to unpack values from arrays or variables. breaks complex data structures down to simple structures
+  - Destructuring assignment uses []
+  Ex: const arr = [2, 3, 4]
+  const [x, y, z] = arr 
+  console.log(x, y, z) // 2 3 4
+  - x, y and z take their values from the values in arr via destructuring
+  - destructuring is always on the left side of the equal sign
+  - destructuring doesnt change the original element
+
+  - to skip an element while destructuring, add a blank placeholder
+    Ex: const [x, , z] = arr // x = 2, z = 4
+    - only x and z will be created from arr
+
+  - variables can be created with destructuing via function calls
+  Ex: const [starter, mainCourse] = restaurant.order(2, 0) 
+  - starter and mainCourse will equal the return values of the function
+
+  - destructuring nested arrays with inner destructuing assignments
+  Ex: const nested = [2, 4, [5, 6]]
+  const [i, , [j, k]] = nested // 2 5 6
+  - without the inner destructuing assignment, j would equal the array element from the nested variable ([5 ,6])
+
+  - set default values inside of a destructuing assignment with = 
+  Ex: const [p = 1, q = 1, r = 1] = [8, 9];
+  console.log(p, q, r); 
+  - r remains its default because the array on the right doesnt have a 3rd element
+  - without the defaults, r would return undefined
+  - useful when data is being received from an API 
+
+
+  
+
