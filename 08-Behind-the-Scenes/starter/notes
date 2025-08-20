@@ -110,11 +110,11 @@ Execution Context (EC):
   3. this keyword
 
   - these 3 things are created during the creation phase right before execution
-  - arrow functions do not get an arguments object or a this keyword
+  - arrow functions do not get an argument object or a this keyword
     - arrow functions borrow these two things from their closest regular function parent
   - the value of each variable or function is not known during creation, only till execution happens
   - the call stack is made up of ECs stacked upon each other to keep track of where we are in execution
-    - the execution of theses ECs depend on how functions are called, but only one EC is ran at a time (single threaded)
+    - the execution of these ECs depend on how functions are called, but only one EC is ran at a time (single threaded)
     - ECs can be paused if there is function inside a function. the outer function (EC) will pause to allow the inner function to finish. then the thread will return to the outer function
 
 Scope:
@@ -191,7 +191,7 @@ if (myName === "Ricky") {
 }
 
 - the TDZ for the job variable is the 3 lines before it up to where its declared.
-- the first console.log will return "ReferenceError: Cannot access job before initilization" because we are trying to access job in its TDZ
+- the first console.log will return "ReferenceError: Cannot access job before initilization" because we are trying to access 'job' in its TDZ
 - the last console.log will return "ReferenceError: x is not defined" because there is no x variable in the scope
 
 This keyword:
@@ -200,7 +200,7 @@ This keyword:
 - 'this' is not static.
   - depends on how the function is called
   - value is assigned only when the function is called
-- Few different ways to call a function and 'this' behaves
+- Few different ways to call a function and how 'this' behaves
   1. Method: this = object that is calling methods
   Ex: const ricky = {
     name: "ricky",

@@ -16,7 +16,7 @@ function first() {
 }
 
 function third() {
-  const d = 'hey!';
+  const d = 'hey! ';
   console.log(d + a);
 }
 
@@ -52,7 +52,7 @@ function calcAge(birthYear) {
       function add(a, b) {
         return a + b;
       }
-      console.log(millenial);
+      console.log(millenial, firstName);
       console.log(output);
       console.log(add(2, 3));
     }
@@ -60,10 +60,8 @@ function calcAge(birthYear) {
   printAge();
   return age;
 }
-
 const firstName = 'Ricky';
 calcAge(1992);
-
 ///////////HOISTING//////////////
 // variables
 console.log(me);
@@ -75,9 +73,9 @@ let job = 'engineer';
 const year = 1992;
 
 // functions
-console.log(addDecl(2, 3));
-console.log(addExpr(2, 3));
-console.log(addArr(2, 3));
+console.log('Decl', addDecl(2, 3));
+console.log('Expr', addExpr(2, 3));
+console.log('Arr', addArr(2, 3));
 
 function addDecl(a, b) {
   return a + b;
@@ -90,7 +88,6 @@ const addExpr = function (a, b) {
 const addArr = (a, b) => {
   return a + b;
 };
-
 if (!numProducts) deleteShoppingCart();
 console.log(numProducts);
 
@@ -117,7 +114,7 @@ calcAge(1992);
 
 const calcAgeArrow = birthYear => {
   console.log(2037 - birthYear);
-  console.log(this);
+  console.log(this); //window object. arrow funcs dont have this
 };
 calcAgeArrow(1991);
 
@@ -126,18 +123,18 @@ const ricky = {
   calcAge: function () {
     console.log(this);
     console.log(2037 - this.year);
-  },
+    },
 };
-
+    
 ricky.calcAge();
 
 const monica = {
   year: 1991,
 };
-
+  
 monica.calcAge = ricky.calcAge; // method borrowing
 monica.calcAge();
-
+  
 const z = ricky.calcAge;
 z(); // undefined because this is now a simple function call (no owner/object attached)
 
@@ -175,16 +172,16 @@ ricky.calcAge();
 
 ///////////ARGUMENTS KEYWORD//////////////
 const addExpr = function (a, b) {
-    console.log(arguments);
-    return a + b;
-  };
-  
-  addExpr(2, 5);
-  addExpr(2, 5, 3, 1);
-  
-  const addArr = (a, b) => {
-      return a + b;
-    };
+  console.log(arguments);
+  return a + b;
+};
+
+addExpr(2, 5);
+addExpr(2, 5, 3, 1);
+
+const addArr = (a, b) => {
+  return a + b;
+};
 */
 
 ///////////OBJECT REFERENCES//////////////
@@ -194,12 +191,12 @@ const jessica1 = {
   age: 27,
 };
 
-function marryPerson(originalPerson, newLastName) {
-  originalPerson.lastName = newLastName;
-  return originalPerson;
-}
+// function marryPerson(originalPerson, newLastName) {
+//   originalPerson.lastName = newLastName;
+//   return originalPerson;
+// }
 
-const marriedJessica = marryPerson(jessica1, 'Davis');
+// const marriedJessica = marryPerson(jessica1, 'Davis');
 
 // const marriedJessica = jessica1;
 // marriedJessica.lastName = 'Davis';
@@ -218,11 +215,11 @@ const jessica = {
 const jessicaCopy = { ...jessica };
 jessicaCopy.lastName = 'Davis';
 
-// jessicaCopy.family.push('Mary');
-// jessicaCopy.family.push('John');
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
 
-// console.log('Before:', jessica);
-// console.log('After:', jessicaCopy);
+console.log('Before:', jessica);
+console.log('After:', jessicaCopy);
 
 // deep copy
 const jessicaClone = structuredClone(jessica);
