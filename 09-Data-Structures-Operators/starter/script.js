@@ -45,6 +45,12 @@ const restaurant = {
     );
   },
 
+  orederPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -61,17 +67,49 @@ const restaurant = {
   },
 };
 
-restaurant.orderDeliver({
-  time: '22:30',
-  address: 'Via del Sole, 21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+//////////////////////////////////
+//////SPREAD OPERATOR///////
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
 
-restaurant.orderDeliver({
-  address: 'Via del Sole, 21',
-  starterIndex: 1,
-});
+const goodNewArr = [1, 2, ...arr];
+console.log(goodNewArr);
+console.log(...goodNewArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+//shallow copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//merge arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+//strings
+const str = 'Ricky';
+const letters = [...str, ' ', 'A.'];
+console.log(letters);
+
+//with functions
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?'),
+// ];
+// console.log(ingredients);
+// restaurant.orederPasta(...ingredients);
+
+//objects
+const newRestaurant = { ...restaurant, founder: 'Guiseppe', foundedIn: 1996 };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Risorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+/*
 //////////////////////////////////
 //////DESTRUCTURING OBJECTS///////
 //basic
@@ -103,7 +141,18 @@ const {
 } = hours;
 console.log(open, close);
 
-/*
+restaurant.orderDeliver({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDeliver({
+  address: 'Via del Sole, 21',
+  starterIndex: 1,
+});
+
 /////////////////////////////////
 //////DESTRUCTURING ARRAYS///////
 const arr = [2, 3, 4];

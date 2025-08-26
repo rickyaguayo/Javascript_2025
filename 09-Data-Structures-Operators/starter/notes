@@ -45,6 +45,20 @@ Destructuring:
   - therefore adding () around the entire thing will work. ({a, b} = obj)
   - nested variables:
     Ex: const { fri: {open, close} } = openingHours; //open = 11, close = 23
+  console.log(...arr2) // 1 2 7 8 9
+
+Spread Operator:
+- brings individual elements from a comma separated iterable (when building an array or passing into a function) into wherever its called
+  Ex: const arr = [7, 8, 9]
+  const arr2 = [1, 2, ...arr] // [1, 2, 7, 8, 9]
+- iterables: arrays, strings, maps, sets (not objects)
+- this does not manipulate the original array, it creates a copy
+- making a shallow copy of an array:
+  const arr2Copy = [...arr2]
+- merging arrays:
+  const arr3 = [...arr, ...arr2] // [7, 8, 9, 1, 2, 7, 8, 9]
+- since ES2018, the spread operator also works on objects
+- spread operator creates a copy of object, does not manipulate original
 
 
   
