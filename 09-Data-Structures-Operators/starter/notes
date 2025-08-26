@@ -1,6 +1,8 @@
 Destructuring:
+
+- Arrays:
   - a way to unpack values from arrays or variables. breaks complex data structures down to simple structures
-  - Destructuring assignment uses []
+  - Destructuring arrays assignment uses []
   Ex: const arr = [2, 3, 4]
   const [x, y, z] = arr 
   console.log(x, y, z) // 2 3 4
@@ -27,6 +29,22 @@ Destructuring:
   - r remains its default because the array on the right doesnt have a 3rd element
   - without the defaults, r would return undefined
   - useful when data is being received from an API 
+
+- Objects:
+  - {} for destructuing objects
+  - since order in objects dont matter, it doesnt matter when destructuring either. no need for skipping
+  - variable names can be changed within destructuring
+  Ex: const {name: restaurantName, openingHours: hours} = restaurant; 
+  - defaults are the same as arrays
+  - to add to a value to an object, you can destructure it and give it a default
+  Ex: { menu = [], starterMenu: starters = [] } = restaurant;
+    - menu will be added to the restaurant object with [] as its value
+    - starterMenu will be renamed to starters and if it wanst already in the restaurant object, its value would be []
+  - when mutating variables, a js line cannot start with { unless a code block follows
+  - this wont work: {a, b} = obj; an error will be thrown
+  - therefore adding () around the entire thing will work. ({a, b} = obj)
+  - nested variables:
+    Ex: const { fri: {open, close} } = openingHours; //open = 11, close = 23
 
 
   
