@@ -78,6 +78,27 @@ Rest Operator:
   - using rest with the parameters is called a rest parameters
   Ex: const add = function (...numbers) {}
 
+Short Circuiting:
+  - evaluates operands and stops it as soon as the result is determined 
+  - this works because the rules of the operator are being met without having to evaluate the rest of the operands
+  - logical operators can use and return any data type
+
+- || operator:
+  - returns the first truthy value to occur within an operand
+  - if there are no truthy values, it will return the last operand
+  - Ex: console.log(3 || 'ricky') // returns 3
+  - Ex: console.log(0 || 'ricky') // returns ricky
+  - Ex: console.log(0 || 'ricky' || 11) // returns ricky
+  - easy way to set a default value instead of ternary operator
+
+- && operator:
+  - returns the first falsy value to occur within an operand
+  - if there are no falsy values, it will return the last operand
+  - Ex: console.log(0 && 'ricky'); // returns 0
+  - Ex: console.log(2 && 'ricky'); // returns ricky
+  - Ex: console.log(2 && 'ricky' && null && 'hello'); // returns null
+  - can help you find is something exists without an if statement
+
 
 
   

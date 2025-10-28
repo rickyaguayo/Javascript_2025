@@ -72,6 +72,35 @@ const restaurant = {
 };
 
 //////////////////////////////////
+//////SHORT CIRCUITING///////
+
+// || operator
+console.log(3 || 'ricky');
+console.log('' || 'ricky');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'Hello' || 11 || null);
+
+restaurant.numGuests = 11;
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
+
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2);
+
+// && operator
+console.log(0 && 'ricky');
+console.log(2 && 'ricky');
+console.log(2 && 'ricky' && null && 'hello');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'pepperoni');
+}
+
+restaurant.orderPasta && restaurant.orderPizza('mushrooms', 'pepperoni');
+
+/*
+//////////////////////////////////
 //////REST OPERATOR///////
 
 ////////Destructuring////////
@@ -114,7 +143,6 @@ add(...x);
 restaurant.orderPizza('mushrooms', 'pepporoni', 'jalapenos', 'bacon');
 restaurant.orderPizza('mushrooms');
 
-/*
 //////////////////////////////////
 //////SPREAD OPERATOR///////
 const arr = [7, 8, 9];
