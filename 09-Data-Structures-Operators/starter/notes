@@ -50,6 +50,7 @@ Spread Operator:
 - brings individual elements from a comma separated iterable (when building an array or passing into a function) into wherever its called
   Ex: const arr = [7, 8, 9]
   const arr2 = [1, 2, ...arr] // [1, 2, 7, 8, 9]
+- used where there would be values separated by a comma
 - iterables: arrays, strings, maps, sets (not objects)
 - this does not manipulate the original array, it creates a copy
 - always on the right side of the assignment operator
@@ -62,12 +63,22 @@ Spread Operator:
 
 Rest Operator:
 - opposite of spread operator
-- collects unused variables after the last variable in destructuing assignments and packs them into an array
-- does not include any skipped items
-- must be the last element in destructuring assignment
-- only one rest per destructuing assignment
-- always on the left side of the assignment operator
-- with arrays, it creates new arrays
+- used where there would be variable names separated by a comma
+
+- Destructuring:
+  - collects unused variables after the last variable in destructuing assignments and packs them into an array
+  - does not include any skipped items
+  - must be the last element in destructuring assignment
+  - only one rest operator per destructuing assignment
+  - always on the left side of the assignment operator
+  - with arrays, it creates new arrays
+  - with objects, it creates new objects
+
+- Functions
+  - using rest with the parameters is called a rest parameters
+  Ex: const add = function (...numbers) {}
+
+
 
   
 
