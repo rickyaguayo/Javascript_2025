@@ -73,7 +73,7 @@ const restaurant = {
 
 //////////////////////////////////
 //////SHORT CIRCUITING///////
-
+/*
 // || operator
 console.log(3 || 'ricky');
 console.log('' || 'ricky');
@@ -96,8 +96,17 @@ console.log(2 && 'ricky' && null && 'hello');
 if (restaurant.orderPizza) {
   restaurant.orderPizza('mushrooms', 'pepperoni');
 }
-
 restaurant.orderPasta && restaurant.orderPizza('mushrooms', 'pepperoni');
+
+*/
+// nullish coalescing (??)
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+// console.log(guests);
+
+// const guestCorrect = null ?? restaurant.numGuests;
+const guestCorrect = restaurant.numGuests ?? null;
+console.log(guestCorrect);
 
 /*
 //////////////////////////////////

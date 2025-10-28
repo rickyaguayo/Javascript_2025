@@ -99,6 +99,16 @@ Short Circuiting:
   - Ex: console.log(2 && 'ricky' && null && 'hello'); // returns null
   - can help you find is something exists without an if statement
 
+- nullish coalescing
+  - works similar to the || operator but returns value that isnt nullish (null or undefined)
+  - Ex: 
+      restaurant.numGuests = 0;
+      const guests = restaurant.numGuests || 10; //returns 10
+      const guestCorrect = restaurant.numGuests ?? 10; //returns 0
+  - helps when a falsy value is needed to pretend to be truthy value
+  - will work as a || operator if there are no nullish values
+
+
 
 
   
