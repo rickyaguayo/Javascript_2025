@@ -68,6 +68,24 @@ const restaurant = {
 };
 
 //////////////////////////////////
+//////REST OPERATOR///////
+// SPREAD, because on the right side of =
+const arr = [1, 2, ...[3, 4]];
+// console.log(arr);
+
+// REST, because on the left side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+console.log(...restaurant.starterMenu);
+
+/*
+//////////////////////////////////
 //////SPREAD OPERATOR///////
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -79,8 +97,10 @@ console.log(...goodNewArr);
 
 const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 console.log(newMenu);
+
 //shallow copy array
 const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
 
 //merge arrays
 const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
@@ -92,13 +112,13 @@ const letters = [...str, ' ', 'A.'];
 console.log(letters);
 
 //with functions
-// const ingredients = [
-//   prompt("Let's make pasta! Ingredient 1?"),
-//   prompt('Ingredient 2?'),
-//   prompt('Ingredient 3?'),
-// ];
-// console.log(ingredients);
-// restaurant.orederPasta(...ingredients);
+const ingredients = [
+  prompt("Let's make pasta! Ingredient 1?"),
+  prompt('Ingredient 2?'),
+  prompt('Ingredient 3?'),
+];
+console.log(ingredients);
+restaurant.orederPasta(...ingredients);
 
 //objects
 const newRestaurant = { ...restaurant, founder: 'Guiseppe', foundedIn: 1996 };
@@ -108,13 +128,15 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Risorante Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
+*/
 
-/*
 //////////////////////////////////
 //////DESTRUCTURING OBJECTS///////
+
+/*
 //basic
 const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+// console.log(name, openingHours, categories);
 
 //renaming variables
 const {
@@ -122,11 +144,12 @@ const {
   openingHours: hours,
   categories: tags,
 } = restaurant;
-console.log(restaurantName, hours, tags);
+// console.log(restaurantName, hours, tags);
 
 //setting default value for new key
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+const { starterMenu: starters = [] } = restaurant;
+// console.log(starters);
+
 
 //mutating variables
 let a = 111;
@@ -139,7 +162,7 @@ console.log(a, b);
 const {
   fri: { open, close },
 } = hours;
-console.log(open, close);
+console.log(hours, open, close);
 
 restaurant.orderDeliver({
   time: '22:30',

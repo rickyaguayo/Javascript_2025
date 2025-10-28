@@ -1,14 +1,14 @@
 Destructuring:
+  - a way to unpack values from arrays or variables. breaks complex data structures down to simple structures
 
 - Arrays:
-  - a way to unpack values from arrays or variables. breaks complex data structures down to simple structures
   - Destructuring arrays assignment uses []
   Ex: const arr = [2, 3, 4]
   const [x, y, z] = arr 
   console.log(x, y, z) // 2 3 4
-  - x, y and z take their values from the values in arr via destructuring
+  - x, y and z take their values from the values in the already existing arr via destructuring
   - destructuring is always on the left side of the equal sign
-  - destructuring doesnt change the original element
+  - destructuring doesnt change the original array
 
   - to skip an element while destructuring, add a blank placeholder
     Ex: const [x, , z] = arr // x = 2, z = 4
@@ -18,14 +18,14 @@ Destructuring:
   Ex: const [starter, mainCourse] = restaurant.order(2, 0) 
   - starter and mainCourse will equal the return values of the function
 
-  - destructuring nested arrays with inner destructuing assignments
+  - destructure nested arrays with inner destructuing assignments
   Ex: const nested = [2, 4, [5, 6]]
   const [i, , [j, k]] = nested // 2 5 6
   - without the inner destructuing assignment, j would equal the array element from the nested variable ([5 ,6])
 
   - set default values inside of a destructuing assignment with = 
   Ex: const [p = 1, q = 1, r = 1] = [8, 9];
-  console.log(p, q, r); 
+  console.log(p, q, r); // 8 9 1
   - r remains its default because the array on the right doesnt have a 3rd element
   - without the defaults, r would return undefined
   - useful when data is being received from an API 
@@ -38,7 +38,6 @@ Destructuring:
   - defaults are the same as arrays
   - to add to a value to an object, you can destructure it and give it a default
   Ex: { menu = [], starterMenu: starters = [] } = restaurant;
-    - menu will be added to the restaurant object with [] as its value
     - starterMenu will be renamed to starters and if it wanst already in the restaurant object, its value would be []
   - when mutating variables, a js line cannot start with { unless a code block follows
   - this wont work: {a, b} = obj; an error will be thrown
@@ -53,6 +52,7 @@ Spread Operator:
   const arr2 = [1, 2, ...arr] // [1, 2, 7, 8, 9]
 - iterables: arrays, strings, maps, sets (not objects)
 - this does not manipulate the original array, it creates a copy
+- always on the right side of the assignment operator
 - making a shallow copy of an array:
   const arr2Copy = [...arr2]
 - merging arrays:
@@ -60,6 +60,14 @@ Spread Operator:
 - since ES2018, the spread operator also works on objects
 - spread operator creates a copy of object, does not manipulate original
 
+Rest Operator:
+- opposite of spread operator
+- collects unused variables after the last variable in destructuing assignments and packs them into an array
+- does not include any skipped items
+- must be the last element in destructuring assignment
+- only one rest per destructuing assignment
+- always on the left side of the assignment operator
+- with arrays, it creates new arrays
 
   
 
