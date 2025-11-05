@@ -36,7 +36,7 @@ Destructuring:
   - variable names can be changed within destructuring
   Ex: const {name: restaurantName, openingHours: hours} = restaurant; 
   - defaults are the same as arrays
-  - to add to a value to an object, you can destructure it and give it a default
+  - to add a value to an object, you can destructure it and give it a default
   Ex: { menu = [], starterMenu: starters = [] } = restaurant;
     - starterMenu will be renamed to starters and if it wanst already in the restaurant object, its value would be []
   - when mutating variables, a js line cannot start with { unless a code block follows
@@ -77,6 +77,7 @@ Rest Operator:
 - Functions
   - using rest with the parameters is called a rest parameters
   Ex: const add = function (...numbers) {}
+  - this allows an arbitrary amount of parameters to be used in the function
 
 Short Circuiting:
   - evaluates operands and stops it as soon as the result is determined 
@@ -112,19 +113,57 @@ Logical Assignment Operators
 - using short circuiting to help assign
 - OR: ||=
   Ex: rest1 = { name: 'rest 1', guests: 20}
-  rest1.guests = rest1.guests || 10 // returns 20 (without logical assignment operator)
+  rest1.guests = rest1.guests || 10 // returns 20
   rest1.guests ||= 10 (same as above)
 - AND: &&=
   Ex: rest1.owner = rest1.owner && '<ANONYMOUS>';
     - adds owner: undefined to rest1 object
   rest1.owner &&= '<ANONYMOUS>';
-    - doesnt add the owner key/value because its changing anything thats already truthy. owner in rest1 doesnt exist its not truthy. otherwise itll just change the value
+    - doesnt add the owner key/value because its changing anything thats already truthy. owner in rest1 doesnt exist so its not truthy. otherwise itll just change the value
 - nullish: ??=
   Ex: rest1 = { name: 'rest 1', guests: 0}
-  rest1.guests = rest1.guests ?? 10 // returns 0 (without logical assignment operator)
+  rest1.guests = rest1.guests ?? 10 // returns 0
   rest1.guests ??= 10 (same as above)
 
+For-of loop:
+- automatically loop over an array and give access to each element
+  Ex: for (const item of menu) {
+    console.log(item)
+  }
+- helps eliminate the use of a counter variable
+- can still use break and continue
+- using the .entries() method will return an array for each element that is looped over with its index followed by its value
+  Ex: for (const item of menu.entries()) {
+    console.log(item)
+  }
+  - returns [0, 'item 1'], [1, 'item 2'], etc
+  - .entries() is an array iterator
 
+Enhancing object literals:
+- when injecting an outside object into another object, there is no need to write it as a key/value pair. writing it once will inject the entire object and JS knows to use it as a key/value pair
+  Ex: const obj1 = { one: 1, two: 2}
+      const obl2 = {obj1, three: 3, four: 4}
+  - unlike the spread operator, it will inject the actual object as it was into the other object
+- when writing methods, there is no longer a need for a key/value pair inside an object
+- since ES6, the function keyword and the colon can be omitted
+  Ex: order: function() {} // old way
+      order() {} // new way
+- property names can be computed inside objects
+  Ex: const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+  const openingHours = {
+    [weekdays[3]]: {
+      open: 12,
+      close: 22,
+    },
+    [weekdays[4]]: {
+      open: 11,
+      close: 23,
+    },
+    [weekdays[5]]: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  }; 
 
 
   
