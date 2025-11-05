@@ -71,6 +71,43 @@ const restaurant = {
   },
 };
 
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+//////////////////////////////////
+//////LOGICAL ASSIGNMENT OPERATORS///////
+
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// Nullish Coalescing assignment operator (null or undefined)
+// rest1.numGuests = rest1.numGuests ?? 10;
+// rest2.numGuests = rest1.numGuests ?? 10;
+
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
+
+// AND assignment operator
+// rest1.owner = rest1.owner && '<ANONYMOUS>'; //adds owner: undefined to rest1 object
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+rest1.owner &&= '<ANONYMOUS>'; // doesnt add the owner key/value because its changing anything thats already truthy. owner in rest1 doesnt exist its not truthy
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+
 //////////////////////////////////
 //////SHORT CIRCUITING///////
 /*
@@ -98,7 +135,6 @@ if (restaurant.orderPizza) {
 }
 restaurant.orderPasta && restaurant.orderPizza('mushrooms', 'pepperoni');
 
-*/
 // nullish coalescing (??)
 restaurant.numGuests = 0;
 const guests = restaurant.numGuests || 10;
@@ -108,7 +144,6 @@ const guests = restaurant.numGuests || 10;
 const guestCorrect = restaurant.numGuests ?? null;
 console.log(guestCorrect);
 
-/*
 //////////////////////////////////
 //////REST OPERATOR///////
 
@@ -216,7 +251,6 @@ const {
 //setting default value for new key
 const { starterMenu: starters = [] } = restaurant;
 // console.log(starters);
-
 
 //mutating variables
 let a = 111;

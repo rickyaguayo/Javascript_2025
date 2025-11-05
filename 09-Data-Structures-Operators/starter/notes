@@ -26,13 +26,13 @@ Destructuring:
   - set default values inside of a destructuing assignment with = 
   Ex: const [p = 1, q = 1, r = 1] = [8, 9];
   console.log(p, q, r); // 8 9 1
-  - r remains its default because the array on the right doesnt have a 3rd element
+  - r remains its default because the array that it's destructuring from doesnt have a 3rd element
   - without the defaults, r would return undefined
   - useful when data is being received from an API 
 
 - Objects:
   - {} for destructuing objects
-  - since order in objects dont matter, it doesnt matter when destructuring either. no need for skipping
+  - since order in objects dont matter, it doesnt matter when destructuring either. no need for skipping like arrays
   - variable names can be changed within destructuring
   Ex: const {name: restaurantName, openingHours: hours} = restaurant; 
   - defaults are the same as arrays
@@ -44,12 +44,12 @@ Destructuring:
   - therefore adding () around the entire thing will work. ({a, b} = obj)
   - nested variables:
     Ex: const { fri: {open, close} } = openingHours; //open = 11, close = 23
-  console.log(...arr2) // 1 2 7 8 9
 
 Spread Operator:
 - brings individual elements from a comma separated iterable (when building an array or passing into a function) into wherever its called
   Ex: const arr = [7, 8, 9]
-  const arr2 = [1, 2, ...arr] // [1, 2, 7, 8, 9]
+  const arr2 = [1, 2, ...arr]
+  console.log(...arr2) // 1 2 7 8 9
 - used where there would be values separated by a comma
 - iterables: arrays, strings, maps, sets (not objects)
 - this does not manipulate the original array, it creates a copy
@@ -97,7 +97,7 @@ Short Circuiting:
   - Ex: console.log(0 && 'ricky'); // returns 0
   - Ex: console.log(2 && 'ricky'); // returns ricky
   - Ex: console.log(2 && 'ricky' && null && 'hello'); // returns null
-  - can help you find is something exists without an if statement
+  - can help you find is something exists without an if/else statement
 
 - nullish coalescing
   - works similar to the || operator but returns value that isnt nullish (null or undefined)
@@ -107,6 +107,22 @@ Short Circuiting:
       const guestCorrect = restaurant.numGuests ?? 10; //returns 0
   - helps when a falsy value is needed to pretend to be truthy value
   - will work as a || operator if there are no nullish values
+
+Logical Assignment Operators
+- using short circuiting to help assign
+- OR: ||=
+  Ex: rest1 = { name: 'rest 1', guests: 20}
+  rest1.guests = rest1.guests || 10 // returns 20 (without logical assignment operator)
+  rest1.guests ||= 10 (same as above)
+- AND: &&=
+  Ex: rest1.owner = rest1.owner && '<ANONYMOUS>';
+    - adds owner: undefined to rest1 object
+  rest1.owner &&= '<ANONYMOUS>';
+    - doesnt add the owner key/value because its changing anything thats already truthy. owner in rest1 doesnt exist its not truthy. otherwise itll just change the value
+- nullish: ??=
+  Ex: rest1 = { name: 'rest 1', guests: 0}
+  rest1.guests = rest1.guests ?? 10 // returns 0 (without logical assignment operator)
+  rest1.guests ??= 10 (same as above)
 
 
 
