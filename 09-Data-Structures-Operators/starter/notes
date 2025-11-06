@@ -32,7 +32,7 @@ Destructuring:
 
 - Objects:
   - {} for destructuing objects
-  - since order in objects dont matter, it doesnt matter when destructuring either. no need for skipping like arrays
+  - since order in objects doesnt matter, it doesnt matter when destructuring either. no need for skipping like arrays. but the names must match something in the object
   - variable names can be changed within destructuring
   Ex: const {name: restaurantName, openingHours: hours} = restaurant; 
   - defaults are the same as arrays
@@ -40,8 +40,9 @@ Destructuring:
   Ex: { menu = [], starterMenu: starters = [] } = restaurant;
     - starterMenu will be renamed to starters and if it wanst already in the restaurant object, its value would be []
   - when mutating variables, a js line cannot start with { unless a code block follows
-  - this wont work: {a, b} = obj; an error will be thrown
-  - therefore adding () around the entire thing will work. ({a, b} = obj)
+    - this wont work: {a, b} = obj; an error will be thrown
+    - therefore adding () around the entire thing will fix it 
+      Ex: ({a, b} = obj)
   - nested variables:
     Ex: const { fri: {open, close} } = openingHours; //open = 11, close = 23
 
@@ -81,7 +82,7 @@ Rest Operator:
 
 Short Circuiting:
   - evaluates operands and stops it as soon as the result is determined 
-  - this works because the rules of the operator are being met without having to evaluate the rest of the operands
+  - this works because the rules of the operator are being met early therefore the rest of the operands dont need to be evaluated
   - logical operators can use and return any data type
 
 - || operator:
@@ -98,15 +99,15 @@ Short Circuiting:
   - Ex: console.log(0 && 'ricky'); // returns 0
   - Ex: console.log(2 && 'ricky'); // returns ricky
   - Ex: console.log(2 && 'ricky' && null && 'hello'); // returns null
-  - can help you find is something exists without an if/else statement
+  - can help you find if something exists without an if/else statement
 
 - nullish coalescing
   - works similar to the || operator but returns value that isnt nullish (null or undefined)
+  - helps when a falsy value is needed to pretend to be truthy value
   - Ex: 
       restaurant.numGuests = 0;
       const guests = restaurant.numGuests || 10; //returns 10
       const guestCorrect = restaurant.numGuests ?? 10; //returns 0
-  - helps when a falsy value is needed to pretend to be truthy value
   - will work as a || operator if there are no nullish values
 
 Logical Assignment Operators
@@ -165,6 +166,29 @@ Enhancing object literals:
     },
   }; 
 
+Optional Chaining:
+- checks to see if a property exists before moving onto the next property
+- used by adding a ?. after the property that may not exist
+  Ex: console.log(restaurant.openingHours.mon?.open)
+  - js is going to check if the .mon property exists (not null or undefined)
+  - if it does, it continues. if it doesnt, it immediately returns undefined  
+- without optional chaining, js will throw an error
+- this helps prevent the code to throw errors and stop because something doesnt exist
+  Ex: console.log(restaurant.openingHours.mon.open) //throws error
+- can have multiple optional chaining in one line
+  Ex: console.log(restaurant.openingHours?.mon?.open)
+- can be used to see if methods exists
+  Ex: console.log(restaurant.order?.(0, 1) ?? 'Method doesnt exist');
+- when using optional chaining, its good to use ?? with it to set a default in case the optional chaining doesnt exist
 
-  
-
+Looping Objects:
+- Keys:
+  - Object.keys(obj1) returns an array of all the keys (as strings) in the obj1 object
+- Values:
+  - Object.values(obj1) returns an array of all the values (as objects) in the obj1 object
+- Entries:
+  - Object.entries(obj1) returns an array of all the key/value pairs (as arrays) in the obj1 object
+  - in each array the key will be the first element as a string and the second element will be an object with the values inside of it
+    - a combo of the .keys() and the .values() combined into an array
+  - unlike on arrays, you call the object in the method rather than calling the methon on the array
+    - arr.entries() vs Object.entries(obj1)

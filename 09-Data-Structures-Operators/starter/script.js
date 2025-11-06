@@ -51,7 +51,7 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDeliver({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
@@ -66,37 +66,78 @@ const restaurant = {
   orderPizza(mainIng, ...otherIngs) {
     console.log(mainIng, otherIngs);
   },
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-};
-
-const rest1 = {
-  name: 'Capri',
-  numGuests: 0,
-};
-
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
 };
 
 //////////////////////////////////
-//////ENHANCED OBJECCT LITERALS///////
+//////LOOPING OBJECTS///////
 
+// Keys
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open ${properties.length} days: `;
+
+for (const day of properties) {
+  // console.log(day);
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Values
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entries
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
 /*
+//////////////////////////////////
+//////OPTIONAL CHAINING///////
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
+} // old way
+
+// console.log(restaurant.openingHours.mon?.open);
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} we are open at ${open}`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method doesnt exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method doesnt exist');
+
+// Arrays
+const users = [
+  {
+    name: 'Ricky',
+    email: 'ricky@ricky.com',
+  },
+  {
+    name: 'Bobo',
+    email: 'bobow@bobo.com',
+  },
+];
+
+// const users = [];
+
+console.log(users[0]?.name ?? 'User array empty');
+
+//without optional chaining
+if (users.length > 0) {
+  console.log(users[0].name);
+} else {
+  console.log('User array empty');
+}
+
 //////////////////////////////////
 //////FOR-OF LOOP///////
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
@@ -109,26 +150,37 @@ for (const [i, el] of menu.entries()) {
 }
 
 // console.log(...menu.entries());
+
 //////////////////////////////////
 //////LOGICAL ASSIGNMENT OPERATORS///////
 
-// OR assignment operator
-// rest1.numGuests = rest1.numGuests || 10;
-// rest2.numGuests = rest2.numGuests || 10;
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
 
-// rest1.numGuests ||= 10;
-// rest2.numGuests ||= 10;
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
 
-// Nullish Coalescing assignment operator (null or undefined)
-// rest1.numGuests = rest1.numGuests ?? 10;
-// rest2.numGuests = rest1.numGuests ?? 10;
+OR assignment operator
+rest1.numGuests = rest1.numGuests || 10;
+rest2.numGuests = rest2.numGuests || 10;
 
-// rest1.numGuests ??= 10;
-// rest2.numGuests ??= 10;
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
 
-// AND assignment operator
-// rest1.owner = rest1.owner && '<ANONYMOUS>'; //adds owner: undefined to rest1 object
-// rest2.owner = rest2.owner && '<ANONYMOUS>';
+Nullish Coalescing assignment operator (null or undefined)
+rest1.numGuests = rest1.numGuests ?? 10;
+rest2.numGuests = rest1.numGuests ?? 10;
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+AND assignment operator
+rest1.owner = rest1.owner && '<ANONYMOUS>'; //adds owner: undefined to rest1 object
+rest2.owner = rest2.owner && '<ANONYMOUS>';
 
 rest1.owner &&= '<ANONYMOUS>'; // doesnt add the owner key/value because its changing anything thats already truthy. owner in rest1 doesnt exist its not truthy
 rest2.owner &&= '<ANONYMOUS>';
@@ -292,14 +344,14 @@ const {
 } = hours;
 console.log(hours, open, close);
 
-restaurant.orderDeliver({
+restaurant.orderDelivery({
   time: '22:30',
   address: 'Via del Sole, 21',
   mainIndex: 2,
   starterIndex: 2,
 });
 
-restaurant.orderDeliver({
+restaurant.orderDelivery({
   address: 'Via del Sole, 21',
   starterIndex: 1,
 });
