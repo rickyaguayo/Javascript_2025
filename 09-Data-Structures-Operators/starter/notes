@@ -32,7 +32,8 @@ Destructuring:
 
 - Objects:
   - {} for destructuing objects
-  - since order in objects doesnt matter, it doesnt matter when destructuring either. no need for skipping like arrays. but the names must match a variabel in the destructured object 
+  - since order in objects doesnt matter, it doesnt matter when destructuring either. no need for skipping like arrays. 
+  - the variable names must match a variable names in the destructured object 
   - variable names can be changed within destructuring
   Ex: const {name: restaurantName, openingHours: hours} = restaurant; 
   - defaults are the same as arrays
@@ -192,3 +193,33 @@ Looping Objects:
     - a combo of the .keys() and the .values() combined into an array
   - unlike on arrays, the object is called in the method rather than calling the method on the array
     - arr.entries() vs Object.entries(obj1)
+
+JS Data structures:
+
+- Sets: 
+  - Set(iterable)
+  - like an array because it is comma separated vavlues with no key/value pairs and is iterable
+  - order of values in a set is irrlevant
+  - data structure with unique values. if there are duplicates, they are removed
+  - can have multiple data types within it
+  - sets do not have indexes. there is no way to get data from a set
+    - this is because the values are unique and order doesnt matter. the only data we need from sets is whether a value is there or not (.has())
+    - if data is needed to be retrieved, in order, or can have duplicates, its best to use an array or object
+    - sets are not a replacement for arrays
+  - can be used with strings 
+    Ex: console.log(new Set('Ricky')) // returns {'R', 'i', 'c', 'k', 'y'}
+  - .size method returns how many elements in a set after duplicates are removed Ex: orderSet.size // returns 3
+    - different from .length because sets remove duplicates
+  - .has() returns a boolean of whether or not the set has the specified value
+    Ex: orderSet.has('Pizza') // true
+    - like .includes() for arrays
+  - .add() adds a value to the end of the set it's being called on
+    Ex: orderSet.add('Garlic Bread')
+    - like .push() for arrays
+  - .delete() deletes a values from the set its being called on
+    Ex: orderSet.delete('Risotto')
+  - .clear() clears entire set. returns empty set
+  - to convert a set to an array, surround the set with array brackets and use the spread operator
+    Ex: const staffUnique = [...new Set(staff)]
+  
+  
