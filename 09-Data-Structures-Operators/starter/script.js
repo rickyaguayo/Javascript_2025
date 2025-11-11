@@ -73,7 +73,7 @@ const restaurant = {
 
 // Keys
 const properties = Object.keys(openingHours);
-console.log(properties);
+console.log('Keys: ', properties);
 
 let openStr = `We are open ${properties.length} days: `;
 
@@ -85,11 +85,11 @@ console.log(openStr);
 
 // Values
 const values = Object.values(openingHours);
-console.log(values);
+console.log('Values: ', values);
 
 // Entries
 const entries = Object.entries(openingHours);
-console.log(entries);
+console.log('Entires: ', entries);
 
 for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
@@ -190,6 +190,7 @@ console.log(rest2);
 
 //////////////////////////////////
 //////SHORT CIRCUITING///////
+
 // || operator
 console.log(3 || 'ricky');
 console.log('' || 'ricky');

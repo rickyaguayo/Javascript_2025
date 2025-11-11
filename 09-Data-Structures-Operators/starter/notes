@@ -21,7 +21,7 @@ Destructuring:
   - destructure nested arrays with inner destructuing assignments
   Ex: const nested = [2, 4, [5, 6]]
   const [i, , [j, k]] = nested // 2 5 6
-  - without the inner destructuing assignment, j would equal the array element from the nested variable ([5 ,6])
+  - without the inner destructuing assignment, j would equal the nested array element itself from the nested variable ([5 ,6])
 
   - set default values inside of a destructuing assignment with = 
   Ex: const [p = 1, q = 1, r = 1] = [8, 9];
@@ -32,7 +32,7 @@ Destructuring:
 
 - Objects:
   - {} for destructuing objects
-  - since order in objects doesnt matter, it doesnt matter when destructuring either. no need for skipping like arrays. but the names must match something in the object
+  - since order in objects doesnt matter, it doesnt matter when destructuring either. no need for skipping like arrays. but the names must match a variabel in the destructured object 
   - variable names can be changed within destructuring
   Ex: const {name: restaurantName, openingHours: hours} = restaurant; 
   - defaults are the same as arrays
@@ -67,7 +67,7 @@ Rest Operator:
 - used where there would be variable names separated by a comma
 
 - Destructuring:
-  - collects unused variables after the last variable in destructuing assignments and packs them into an array
+  - collects unused variables in destructuing assignments and packs them into an array
   - does not include any skipped items
   - must be the last element in destructuring assignment
   - only one rest operator per destructuing assignment
@@ -144,7 +144,7 @@ Enhancing object literals:
 - when injecting an outside object into another object, there is no need to write it as a key/value pair. writing it once will inject the entire object and JS knows to use it as a key/value pair
   Ex: const obj1 = { one: 1, two: 2}
       const obl2 = {obj1, three: 3, four: 4}
-  - unlike the spread operator, it will inject the actual object as it was into the other object
+  - unlike the spread operator, it will inject the actual object as it was into the other object not just individual pieces
 - when writing methods, there is no longer a need for a key/value pair inside an object
 - since ES6, the function keyword and the colon can be omitted
   Ex: order: function() {} // old way
@@ -179,16 +179,16 @@ Optional Chaining:
   Ex: console.log(restaurant.openingHours?.mon?.open)
 - can be used to see if methods exists
   Ex: console.log(restaurant.order?.(0, 1) ?? 'Method doesnt exist');
-- when using optional chaining, its good to use ?? with it to set a default in case the optional chaining doesnt exist
+- when using optional chaining, its common to use ?? with it to set a default in case the optional chaining doesnt exist
 
 Looping Objects:
 - Keys:
   - Object.keys(obj1) returns an array of all the keys (as strings) in the obj1 object
 - Values:
-  - Object.values(obj1) returns an array of all the values (as objects) in the obj1 object
+  - Object.values(obj1) returns an array of all the values (as they are) in the obj1 object
 - Entries:
   - Object.entries(obj1) returns an array of all the key/value pairs (as arrays) in the obj1 object
-  - in each array the key will be the first element as a string and the second element will be an object with the values inside of it
+  - in each array the key will be the first element as a string and the second element will be the values as it is in its original object
     - a combo of the .keys() and the .values() combined into an array
-  - unlike on arrays, you call the object in the method rather than calling the methon on the array
+  - unlike on arrays, the object is called in the method rather than calling the method on the array
     - arr.entries() vs Object.entries(obj1)
